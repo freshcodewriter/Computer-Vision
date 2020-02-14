@@ -22,3 +22,28 @@ A combination of generalized image warping with a cross-dissolve between pixels
 - Produce the vector b by evaluating the discrete laplacian over the source image, bounded by the mask region, and combining those values with known pixel values of the target image.
 - Knowing the formulations of A and b, solve for x.
 - Clip pixel values of x that extend outside the valid intensity range and reshape to the proper image dimensions.
+
+4. Image Stitch
+- Detecting keypoints (DoG, Harris, etc.) and extracting local invariant descriptors (SIFT, SURF, etc.) from two input images
+- Matching the descriptors between the images
+- Using the RANSAC algorithm to estimate a homography matrix using our matched feature vectors
+- Applying a warping transformation using the homography matrix obtained from Step #3
+
+5. Seam Curving
+- Calculate energy map
+- Find minimum seam from top to bottom edge
+- Remove minimum seam from top to bottom edge
+- Repeat Steps 1 - 3 until desired number of seams are removed
+- Repeat Steps 1 - 4 for left to right edge
+
+6. Optical Flow
+- Setting up your environment
+- Shi-Tomasi Corner Detector - selecting the pixels to track
+- Tracking Specific Objects
+- Visualizing
+
+7. Face Swapping in Video
+A project that integrates all algorithm and swaps face in two videos
+
+8. Deep Learning
+Explore deep learning algorithm in CNN 
